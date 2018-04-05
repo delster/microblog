@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>SECOND APP</title>
-    </head>
-    <body>
-        <%= flash[:notice] if flash[:notice] %>
-        <header>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/users">Users</a></li>
-            </ul>
-        </header>
-        <%= yield %>
-    </body>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kobi's Macro Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Normalize.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54="
+        crossorigin="anonymous" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+</head>
+
+<body>
+  <%= flash[:notice] if flash[:notice] %>
+  <header>
+    <div class="container">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li class="logged-out"><a href="/signup">Signup</a></li>
+        <li class="logged-out"><a href="/login">Login</a></li>
+        <li class="logged-in"><a href="/user/<%= session[:user_id] %>">Profile</a></li>
+        <li class="logged-in"><a href="/users">Users</a></li>
+      </ul>
+    </nav>
+    </div>
+  </header>
+
+  <%= yield %>
+
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+</body>
+
 </html>
