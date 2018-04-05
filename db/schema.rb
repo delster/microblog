@@ -13,16 +13,21 @@
 ActiveRecord::Schema.define(version: 20180405151452) do
 
   create_table "posts", force: :cascade do |t|
-    t.string "title", limit: 50
-    t.text "content"
+    t.string "title"
+    t.text "content", limit: 150
     t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
+    t.string "user_name"
     t.string "password"
-    t.integer "age"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "nickname"
+    t.string "hobbies"
+    t.string "font_color"
+    t.string "bg_color"
   end
 
 end
