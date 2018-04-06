@@ -5,7 +5,7 @@ require 'sinatra/flash'
 require './models'
 enable :sessions
 
-set :database, 'sqlite3:microblog.sqlite3'
+configure(:development) {set :database, 'sqlite3:microblog.sqlite3'}
 
 def current_user
   if session[:user_id]
@@ -25,6 +25,16 @@ get '/login' do
   erb :login
 end
 
+get '/post/:id' do
+  @post = Post.find(params[:id])
+  erb :post
+end
+
+get '/posts' do
+  @posts = Post.all
+  erb :posts
+end
+
 get '/user/:id' do
   @user = User.find(params[:id])
   @posts = @user.posts
@@ -37,9 +47,6 @@ get '/users' do
 end
 
 post '/users/new' do
-    puts "****************************"
-    puts params
-    puts "****************************"
   User.create(params[:new_user])
   redirect "/user/#{User.last.id}"
 end
@@ -49,7 +56,7 @@ post '/sign-in' do
   if @user.password == params[:password]
     session[:user_id] = @user.id
     flash[:notice] = 'Success!'
-    redirect "/user/#{@user.user_name}"
+    redirect "/user/#{@user.id}"
   else
     flash[:notice] = 'FAILED LOGIN :('
     redirect '/sign-in-failed'

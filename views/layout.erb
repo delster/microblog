@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54="
         crossorigin="anonymous" />
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
 </head>
 
 <body>
@@ -20,10 +20,15 @@
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
-          <li class="logged-out"><a href="/signup">Signup</a></li>
-          <li class="logged-out"><a href="/login">Login</a></li>
-          <li class="logged-in"><a href="/user/<%= @current_user.id if @current_user %>">Profile</a></li>
-          <li class="logged-in"><a href="/users">Users</a></li>
+          <% if current_user %>
+            <% # Logged In %>
+            <li class="logged-in"><a href="/user/<%= @current_user.id if @current_user %>">Profile</a></li>
+            <li class="logged-in"><a href="/users">Users</a></li>
+          <% else %>
+            <% # Logged Out %>
+            <li class="logged-out"><a href="/signup">Signup</a></li>
+            <li class="logged-out"><a href="/login">Login</a></li>
+          <% end%>
         </ul>
       </nav>
     </div>

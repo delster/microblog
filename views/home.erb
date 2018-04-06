@@ -5,9 +5,10 @@
   </section>
   <section id="home-blogroll">
     <div class="container">
+      <% @posts = Post.all %>
       <% @posts.each do |post| %>
-        <h3> <%= post.title %> </h3>
-        <p>  <%= post.content %> </p>
+        <h3><a class="post-link" href="/post/<%= post.id %>"><%= post.title %></a></h3>
+        <p class="post-content"><%= post.content %></p>
       <% end %>
     </div>
   </section>

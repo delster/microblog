@@ -1,0 +1,7 @@
+<h1>Blogroll</h1>
+<div class="blogroll">
+  <% @posts.each do |post| %>
+    <h3><a class="post-link" href="/post/<%= post.id %>"><%= post.title %></a></h3>
+    <p class="post-content"><%= post.content %></p>
+  <% end %>
+</div>
