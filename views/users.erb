@@ -1,5 +1,8 @@
-<h1>LIST OF USERS</h1>
+<h1>User List</h1>
 <% @users.each do |user| %>
-    <h4><a href="/user/<%= user.id %>"><%= user.fname %> <%= user.lname %></a></h4>
-    <p>Age: <%= user.age %></p>
+  <p class="user-link">
+    <a href="/user/<%= user.id %>">
+      <% if user.nickname %><%= user.nickname %><% else %><%= user.user_name %><% end %>
+    </a>
+  </p>
 <% end %>

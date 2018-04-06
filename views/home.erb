@@ -1,20 +1,38 @@
-<h1>THIS IS HOME</h1>
 <% if current_user %>
-    <h2>Welcome back <%= current_user.fname %>!</h2>
+  <% # Logged In %>
+  <section id="home-hero">
+    <h1>Welcome to KobiBook</h1>
+  </section>
+  <section id="home-blogroll">
+    <div class="container">
+      <% @posts.each do |post| %>
+        <h3> <%= post.title %> </h3>
+        <p>  <%= post.content %> </p>
+      <% end %>
+    </div>
+  </section>
+<% else %>
+  <% # Logged Out %>
+  <section id="home-loggedout">
+    <div class="container">
+      <div class="row">
+        <div class="col col-50">
+          <h2>Sign Up</h2>
+          <form id="signup-form" action="/users/new" method="post">
+            <input type="text" name="[new_user]user_name" placeholder="Username">
+            <input type="password" name="[new_user]password" placeholder="Password">
+            <input type="submit" name="" value="Submit">
+          </form>
+        </div> <!-- col-50 -->
+        <div class="col col-50">
+          <h2>Sign In</h2>
+          <form id="signin-form" action="/sign-in" method="post">
+            <input type="text" name="user_name" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" name="" value="Submit">
+          </form>
+        </div> <!-- col-50 -->
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
 <% end %>
-
-<h2>Create new User</h2>
-<form class="" action="/users/new" method="post">
-    <input type="text" name="[post]fname" placeholder="First Name">
-    <input type="text" name="[post]lname" placeholder="Last Name">
-    <input type="text" name="[post]password" placeholder="Password">
-    <input type="text" name="[post]age" placeholder="Age">
-    <input type="submit" name="" value="Submit">
-</form>
-
-<h2>Sign in User</h2>
-<form class="" action="/sign-in" method="post">
-    <input type="text" name="fname" placeholder="First Name">
-    <input type="text" name="password" placeholder="Password">
-    <input type="submit" name="" value="Submit">
-</form>
