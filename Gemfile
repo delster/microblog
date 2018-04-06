@@ -9,11 +9,11 @@ gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-activerecord'
-
-group :development do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
+gem 'sqlite3'
+# group :development do
+#   gem 'sqlite3'
+# end
+#
+# group :production do
+#   gem 'pg'
+# end

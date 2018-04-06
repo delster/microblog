@@ -9,3 +9,28 @@
         <%= post.content %>
     </p>
 <% end %>
+
+<h1>Welcome to
+  <span><%= (@user.nickname) ? @user.nickname : @user.user_name %></span>'s Page!
+</h1>
+
+<section id="profile-stats">
+  <p class="profile-stat"><span>Username:</span> <%= @user.user_name if @user.user_name %></p>
+  <p class="profile-stat"><span>Password:</span> <strong>HIDDEN</strong></p>
+  <p class="profile-stat"><span>First Name:</span> <%= @user.first_name if @user.first_name %></p>
+  <p class="profile-stat"><span>Last Name:</span> <%= @user.last_name if @user.last_name %></p>
+  <p class="profile-stat"><span>Email:</span> <%= @user.email if @user.email %></p>
+  <p class="profile-stat"><span>Nickname:</span> <%= @user.nickname if @user.nickname %></p>
+  <p class="profile-stat"><span>Hobbies:</span> <%= @user.hobbies if @user.hobbies %></p>
+  <p class="profile-stat"><span>Font Color:</span> <%= @user.font_color if @user.font_color %></p>
+  <p class="profile-stat"><span>Background Color:</span> <%= @user.bg_color if @user.bg_color %></p>
+</section>
+
+<section id="profile-posts">
+  <% @posts.each do |post| %>
+    <h3><%= post.title %></h3>
+    <p>
+      <%= post.content %>
+    </p>
+  <% end %>
+</section
