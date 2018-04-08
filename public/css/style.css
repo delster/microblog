@@ -14,8 +14,16 @@
 /* HEADER SECTION
   ***************************************************************/
 
+header nav {
+  align-items: center;
+  justify-content: space-between;
+}
+
 #home-hero h1 {
-  color: blue;
+  color: #4b4ba5cc;
+  font-style: italic;
+  font-weight: bold;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 1);
 }
 
 /* SECTION NAME
