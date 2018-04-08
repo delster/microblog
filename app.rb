@@ -41,6 +41,22 @@ get '/user/:id' do
   erb :user
 end
 
+post '/user/update/:id' do
+  @user = User.find(params['id'])
+
+  # Check if the editor is the owner of the account.
+  if current_user.id == @user.id
+    # Prep the meta fields for the db.
+    @update_meta = params
+    # Delete trash fields that come in through the form.
+    @update_meta.delete('captures')
+    @update_meta.delete('id')
+    # Submit the update to the database.
+    @user.update(@update_meta)
+  end
+
+end
+
 get '/users' do
   @users = User.all
   erb :users
