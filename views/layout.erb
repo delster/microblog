@@ -24,6 +24,7 @@
             <% # Logged In %>
             <li class="logged-in"><a href="/user/<%= @current_user.id if @current_user %>">Profile</a></li>
             <li class="logged-in"><a href="/users">Users</a></li>
+            <li class="logged-in"><a href="/logout">Logout</a></li>
           <% else %>
             <% # Logged Out %>
             <li class="logged-out"><a href="/signup">Signup</a></li>
