@@ -1,19 +1,28 @@
-<% if current_user %>
-  <% # Logged In %>
-  <section id="home-hero">
+<section id="home-hero" class="hero">
+  <div class="container">
     <h1>Welcome to KobiBook</h1>
-  </section>
-  <section id="home-blogroll">
+  </div>
+</section>
+
+<% # Logged In %>
+<% if current_user %>
+  <section id="home-loggedin">
     <div class="container">
-      <% @posts = Post.all %>
-      <% @posts.each do |post| %>
-        <h3><a class="post-link" href="/post/<%= post.id %>"><%= post.title %></a></h3>
-        <p class="post-content"><%= post.content %></p>
-      <% end %>
+      <h2>Latest Posts</h2>
+      <div id="home-blogroll" class="blogroll">
+        <% @posts = Post.last(10) %>
+        <% @posts.each do |post| %>
+          <div class="blogroll-post">
+            <h3><a class="post-link" href="/post/<%= post.id %>"><%= post.title %></a></h3>
+            <p class="post-content"><%= post.content %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
   </section>
+
+<% # Logged Out %>
 <% else %>
-  <% # Logged Out %>
   <section id="home-loggedout">
     <div class="container">
       <div class="row">

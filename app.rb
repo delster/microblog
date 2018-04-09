@@ -35,6 +35,14 @@ get '/posts' do
   erb :posts
 end
 
+post '/posts/new' do
+  np_title = params['newpost-title']
+  np_content = params['newpost-content']
+  np_userid = current_user.id
+  Post.create(title: np_title, content: np_content, user_id: np_userid)
+  redirect "/post/#{Post.last.id}"
+end
+
 get '/user/:id' do
   @user = User.find(params[:id])
   @posts = @user.posts

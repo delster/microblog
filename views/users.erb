@@ -1,8 +1,17 @@
-<h1>User List</h1>
-<% @users.each do |user| %>
-  <p class="user-link">
-    <a href="/user/<%= user.id %>">
-      <% if user.nickname %><%= user.nickname %><% else %><%= user.user_name %><% end %>
-    </a>
-  </p>
-<% end %>
+<section id="users-hero" class="hero">
+  <div class="container">
+    <h1>User List</h1>
+  </div>
+</section>
+
+<section id="users-content">
+  <div class="container">
+    <% @users.each do |user| %>
+      <p class="user-link">
+        <a href="/user/<%= user.id %>">
+          <% if user.nickname %><%= user.nickname %><% else %><%= user.user_name %><% end %>
+        </a>
+      </p>
+    <% end %>
+  </div>
+</section>

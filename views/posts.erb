@@ -1,9 +1,16 @@
-<h1>Blogroll</h1>
-<div class="blogroll">
+<section id="blog-hero" class="hero">
   <div class="container">
-    <% @posts.each do |post| %>
-      <h3><a class="post-link" href="/post/<%= post.id %>"><%= post.title %></a></h3>
-      <p class="post-content"><%= post.content %></p>
-    <% end %>
+    <h1>Blogroll</h1>
   </div>
-</div>
+</section>
+
+<section id="blog-content">
+  <div class="container">
+    <div id="posts-blogroll" class="blogroll">
+      <% @posts.each do |post| %>
+        <h3><a class="post-link" href="/post/<%= post.id %>"><%= post.title %></a></h3>
+        <p class="post-content"><%= post.content %></p>
+      <% end %>
+    </div>
+  </div>
+</section>
