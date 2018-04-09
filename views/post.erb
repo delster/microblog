@@ -4,9 +4,9 @@
   </div>
 </section>
 
-<section id="post-content">
+<section id="post-body">
   <div class="container">
-    <p>  <%= @post.content %> </p>
+    <p id="post-content">  <%= @post.content %> </p>
     <p>Written by <a href="/user/<%= @post.user_id %>"><%= (@author.nickname) ? @author.nickname : @author.user_name %></a>
   </div>
 </section>
@@ -17,6 +17,12 @@
       <button id="post-update">Edit Post</button>
       <a id="post-delete" href="/post/delete/<%= @post.id %>">DELETE POST</a>
     </div>
+  </section>
+  <section id="post-update">
+    <form id="ajax-update-post" action="/post/update/<%= @post.id %>" method="post">
+      <input type="hidden" id="hup-title" name="title" value>
+      <input type="hidden" id="hup-content" name="content" value>
+    </form>
   </section>
 <% end %>
 

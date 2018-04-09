@@ -49,6 +49,22 @@ post '/posts/new' do
   redirect "/post/#{Post.last.id}"
 end
 
+post '/post/update/:id' do
+  @post = Post.find(params['id'])
+
+  # Check if the editor is the owner of the account.
+  if current_user.id == @post.user_id
+    # Prep the meta fields for the db.
+    @update_meta = params
+    # Delete trash fields that come in through the form.
+    @update_meta.delete('captures')
+    @update_meta.delete('id')
+    # Submit the update to the database.
+    @post.update(@update_meta)
+  end
+
+end
+
 get '/post/delete/:id' do
   @post = Post.find(params[:id])
   if current_user == User.find_by(id: @post.user_id)
