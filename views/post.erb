@@ -11,6 +11,15 @@
   </div>
 </section>
 
+<% if current_user == @author %>
+  <section id="post-controls">
+    <div class="container">
+      <button id="post-update">Edit Post</button>
+      <a id="post-delete" href="/post/delete/<%= @post.id %>">DELETE POST</a>
+    </div>
+  </section>
+<% end %>
+
 <style>
   main { background-color: <%= @author.bg_color %> }
   main,p,h1,h2,h3,h4,h5,h6 { color: <%= @author.font_color %> }

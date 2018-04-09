@@ -44,6 +44,14 @@ post '/posts/new' do
   redirect "/post/#{Post.last.id}"
 end
 
+get '/post/delete/:id' do
+  @post = Post.find(params[:id])
+  if current_user == User.find_by(id: @post.user_id)
+    @post.destroy
+  end
+  redirect "/user/#{current_user.id}"
+end
+
 get '/user/:id' do
   @user = User.find(params[:id])
   @posts = @user.posts
