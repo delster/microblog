@@ -65,6 +65,17 @@ post '/user/update/:id' do
 
 end
 
+get '/user/delete/:id' do
+  @user = User.find(params['id'])
+  # Only let the owner of the account delete it.
+  if current_user && current_user.id == @user.id
+    @user.destroy
+    session.clear
+    # TODO: Should we delete posts authored by this person?
+  end
+  redirect '/'
+end
+
 get '/users' do
   @users = User.all
   erb :users
@@ -72,6 +83,7 @@ end
 
 post '/users/new' do
   User.create(params[:new_user])
+  session[:user_id] = User.last.id
   redirect "/user/#{User.last.id}"
 end
 
