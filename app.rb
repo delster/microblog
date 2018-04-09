@@ -27,6 +27,7 @@ end
 
 get '/post/:id' do
   @post = Post.find(params[:id])
+  @author = User.find_by(id: @post.user_id)
   erb :post
 end
 
