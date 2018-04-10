@@ -18,8 +18,8 @@
 <body>
   <%= flash[:notice] if flash[:notice] %>
   <header>
-    <div class="container">
-      <nav>
+      <nav class="grey darken-3">
+        <div class="container">
         <ul>
           <li><a href="/">Home</a></li>
           <% if current_user %>
@@ -37,11 +37,11 @@
     </div>
   </header>
 
-  <main>
+  <main class="red lighten-3">
     <%= yield %>
   </main>
 
-  <footer>
+  <footer class="grey darken-3">
     <p id="footer-copyright">&copy; 2018 - Kobi & David</p>
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -55,7 +55,7 @@
 
     <!-- Custom JS -->
     <script src="/js/main.js" type="application/javascript"></script>
-  </footer>
+  </footer >
 </body>
 
 </html>
