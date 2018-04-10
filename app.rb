@@ -121,14 +121,7 @@ post '/sign-in' do
   @user = User.where(user_name: params[:user_name]).first
   if @user.password == params[:password]
     session[:user_id] = @user.id
-    flash[:notice] = 'Success!'
     redirect "/user/#{@user.id}"
-  else
-    flash[:notice] = 'FAILED LOGIN :('
-    redirect '/sign-in-failed'
-  end
-end
-
-get '/sign-in-failed' do
-  erb :sign_in_failed
+    end
+    redirect '/'
 end
