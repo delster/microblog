@@ -7,7 +7,10 @@
 <section id="post-body">
   <div class="container">
     <p id="post-content">  <%= @post.content %> </p>
-    <p>Written by <a href="/user/<%= @post.user_id %>"><%= (@author.nickname) ? @author.nickname : @author.user_name %></a>
+    <% # If the user still exists, give them credit. %>
+    <% if @author.nickname != '[DELETED USER]' %>
+      <p>Written by <a href="/user/<%= @post.user_id %>"><%= (@author.nickname) ? @author.nickname : @author.user_name %></a>
+    <% end %>
   </div>
 </section>
 
@@ -27,6 +30,6 @@
 <% end %>
 
 <style>
-  main { background-color: <%= @author.bg_color %> }
+  #post-content { background-color: <%= @author.bg_color %> }
   main,p,h1,h2,h3,h4,h5,h6 { color: <%= @author.font_color %> }
 </style>

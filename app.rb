@@ -33,6 +33,12 @@ end
 get '/post/:id' do
   @post = Post.find(params[:id])
   @author = User.find_by(id: @post.user_id)
+  if @author.nil?
+    @author = User.new
+    @author.nickname = '[DELETED USER]'
+    @author.bg_color = 'white'
+    @author.font_color = 'black'
+  end
   erb :post
 end
 
