@@ -1,7 +1,6 @@
 test_users = [
-  ['root', 'root', 'Firsty', 'Lasty', 'root@root.com', 'Rooty', 'Rootin\', Tootin\'', 'white', '#444'],
-  ['david', 'david', 'David', 'Elster', 'david@elster.com', 'Dave', 'This app 🙄', '#2b2b2b', '#0b8c8f'],
-  ['kobi', 'kobi', 'Kobina', 'Anderson', 'kobi@anderson.com', 'Kobi', 'Ruby, JavaScript', 'yellow', 'blue']
+  ['root', 'root', 'ADMIN', 'ADMIN', 'mail@mail.com', 'ADMin', 'HEY\', NO\'', 'white', 'white'],
+
 ]
 
 test_users.each do |un, pw, fn, ln, em, nn, ho, fc, bc|
@@ -9,10 +8,8 @@ test_users.each do |un, pw, fn, ln, em, nn, ho, fc, bc|
 end
 
 test_posts = [
-  ['Hello, World', 'My name is David. This is my first (test) post.', 2],
-  ['Hello, World', 'My name is Kobi. This is my first (test) post.', 3],
-  ['David\'s 2nd Post', 'This is my second post!', 2],
-  ['Kobi\'s 2nd Post', 'This is my second post!', 3]
+  ['Hello, World', 'My name is Sarah. This is my first (test) post.', 2],
+
 ]
 
 test_posts.each do |title, content, author|

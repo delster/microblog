@@ -4,23 +4,17 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Kobi's Macro Blog</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Normalize.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54="
         crossorigin="anonymous" />
-    <!-- Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <!-- Custom CSS -->
+
     <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
 </head>
 
 <body>
-  <%= flash[:notice] if flash[:notice] %>
-  <header>
-      <nav class="grey darken-3">
-        <div class="container">
-        <ul>
+
           <li><a href="/">Home</a></li>
           <% if current_user %>
             <% # Logged In %>
@@ -41,8 +35,8 @@
     <%= yield %>
   </main>
 
-  <footer class="grey darken-3">
-    <p id="footer-copyright">&copy; 2018 - Kobi & David</p>
+
+
     <!-- jQuery 3.3.1 -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -51,8 +45,6 @@
     <!-- jQuery Form Plugin (AJAX Form Submission) -->
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <!-- Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
     <!-- Custom JS -->
     <script src="/js/main.js" type="application/javascript"></script>
   </footer >

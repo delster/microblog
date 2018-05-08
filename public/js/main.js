@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Prepare our hidden form for AJAX submission.
     $("#ajax-update-profile").ajaxForm();
 
-    // Add Event Listeners for User Metadata Changes.
+    //  Listeners
     for (let meta of usermetas) {
       meta.contentEditable = "true";
       meta.addEventListener("input", () => {
@@ -19,29 +19,29 @@ document.addEventListener("DOMContentLoaded", () => {
         // Save the fields to the database after .5s
         timeout = setTimeout(() => {
           document.querySelector(
-            "#huuf-firstname"
+            "#bruh-firstname"
           ).value = document.querySelector(
             "#user-firstname > .value"
           ).innerText;
           document.querySelector(
-            "#huuf-lastname"
+            "#bruh-lastname"
           ).value = document.querySelector("#user-lastname > .value").innerText;
-          document.querySelector("#huuf-email").value = document.querySelector(
+          document.querySelector("#bruh-email").value = document.querySelector(
             "#user-email > .value"
           ).innerText;
           document.querySelector(
-            "#huuf-nickname"
+            "#bruh-nickname"
           ).value = document.querySelector("#user-nickname > .value").innerText;
           document.querySelector(
-            "#huuf-hobbies"
+            "#bruh-hobbies"
           ).value = document.querySelector("#user-hobbies > .value").innerText;
           document.querySelector(
-            "#huuf-fontcolor"
+            "#bruh-fontcolor"
           ).value = document.querySelector(
             "#user-fontcolor > .value"
           ).innerText;
           document.querySelector(
-            "#huuf-bgcolor"
+            "#bruh-bgcolor"
           ).value = document.querySelector("#user-bgcolor > .value").innerText;
 
           // POST using jQuery Form Plugin
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   } // if: /user route
 
-  // Check if we're on a post written by the current user.
+
   if (document.querySelector("#post-controls")) {
     // Cache DOM Elements.
     const editToggle = document.querySelector("#post-update");
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }); // editToggle.click()
 
-    // Limit Post Content to 150 char.
+    // Limit Post Content t
     postContent.addEventListener("input", () => {
       if (postContent.innerText.length > 150) {
         postContent.innerText = postContent.innerText.substring(0, 150);

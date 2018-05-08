@@ -1,32 +1,22 @@
-<section id="profile-hero" class="hero">
+<section id="profile-stuff" class="stuff">
   <div class="container">
     <h1>Welcome to <span><%= (@user.nickname) ? @user.nickname : @user.user_name %></span>'s Page!</h1>
   </div>
 </section>
 
 <section id="profile-stats" class="<%= "current-profile" if current_user == @user %>">
-  <div class="container">
-    <p class="profile-stat noteditable"><span>Username:</span> <%= @user.user_name if @user.user_name %></p>
-    <p class="profile-stat noteditable"><span>Password:</span> <strong>HIDDEN</strong></p>
-    <p class="profile-stat" id="user-firstname"><span>First Name:</span> <span class="value"><%= @user.first_name if @user.first_name %></span></p>
-    <p class="profile-stat" id="user-lastname"><span>Last Name:</span> <span class="value"><%= @user.last_name if @user.last_name %></span></p>
-    <p class="profile-stat" id="user-email"><span>Email:</span> <span class="value"><%= @user.email if @user.email %></span></p>
-    <p class="profile-stat" id="user-nickname"><span>Nickname:</span> <span class="value"><%= @user.nickname if @user.nickname %></span></p>
-    <p class="profile-stat" id="user-hobbies"><span>Hobbies:</span> <span class="value"><%= @user.hobbies if @user.hobbies %></span></p>
-    <p class="profile-stat" id="user-fontcolor"><span>Font Color:</span> <span class="value"><%= @user.font_color if @user.font_color %></span></p>
-    <p class="profile-stat" id="user-bgcolor"><span>Background Color:</span> <span class="value"><%= @user.bg_color if @user.bg_color %></span></p>
-
+  
     <% # If we're logged in: %>
     <% if current_user == @user %>
-      <% # Create a hidden form to do AJAX updates through. "huuf" = hidden user update field %>
+      <% # Create a hidden form to do AJAX updates through. %>
       <form id="ajax-update-profile" action="/user/update/<%= @user.id %>" method="post">
-        <input type="hidden" id="huuf-firstname" name="first_name" value>
-        <input type="hidden" id="huuf-lastname" name="last_name" value>
-        <input type="hidden" id="huuf-email" name="email" value>
-        <input type="hidden" id="huuf-nickname" name="nickname" value>
-        <input type="hidden" id="huuf-hobbies" name="hobbies" value>
-        <input type="hidden" id="huuf-fontcolor" name="font_color" value>
-        <input type="hidden" id="huuf-bgcolor" name="bg_color" value>
+        <input type="hidden" id="bruh-firstname" name="first_name" value>
+        <input type="hidden" id="bruh-lastname" name="last_name" value>
+        <input type="hidden" id="bruh-email" name="email" value>
+        <input type="hidden" id="bruh-nickname" name="nickname" value>
+        <input type="hidden" id="bruh-hobbies" name="hobbies" value>
+        <input type="hidden" id="bruh-fontcolor" name="font_color" value>
+        <input type="hidden" id="bruh-bgcolor" name="bg_color" value>
       </form>
       <% # Create a "delete user" link. %>
       <a href="/user/delete/<%= @user.id %>">DELETE ACCOUNT</a>
